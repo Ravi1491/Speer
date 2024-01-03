@@ -8,15 +8,14 @@ import {
   shareNoteById,
   updateNoteById,
 } from "../controllers/notes";
-import authenticateUser from "../auth/auth";
 
 const router = express.Router();
 
-router.get("/", authenticateUser, getAllNotes);
-router.post("/", authenticateUser, createNote);
-router.get("/:id", authenticateUser, getNoteById);
-router.put("/:id", authenticateUser, updateNoteById);
-router.delete("/:id", authenticateUser, deleteNoteById);
-router.post("/:id/share", authenticateUser, shareNoteById);
+router.get("/", getAllNotes);
+router.post("/", createNote);
+router.get("/:id", getNoteById);
+router.put("/:id", updateNoteById);
+router.delete("/:id", deleteNoteById);
+router.post("/:id/share", shareNoteById);
 
 module.exports = router;
