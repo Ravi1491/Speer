@@ -4,7 +4,14 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "preinstall": "npx npm-force-resolutions",
+    "migrate": "npx sequelize-cli db:migrate",
+    "migrate:undo": "npx sequelize-cli db:migrate:undo",
+    "seed": "npx sequelize-cli db:seed:all",
+    "lint": "eslint ./src",
+    "build": "npx babel src -d dist/src && npx babel models -d dist/models &&  npx babel config -d dist/config",
+    "start:dev": "npm run lint && npm run migrate && nodemon --exec babel-node src/index.js",
+    "start": "npm run lint && npm run build && npm run migrate && node ./dist/src/index.js"
   },
   "repository": {
     "type": "git",
