@@ -1,16 +1,15 @@
 import * as noteService from "../services/notes";
+import logger from "../utils/logger";
 
 export async function getAllNotes(req, res) {
   try {
     const userId = req.user.id;
-    console.log(userId);
 
     const notes = await noteService.findAllNotes({ userId });
-    console.log(notes);
 
     res.json({ notes });
   } catch (error) {
-    console.error(error);
+    logger.error(error);
     res.status(500).json({ error: "Internal Server Error" });
   }
 }
@@ -26,7 +25,7 @@ export async function getNoteById(req, res) {
 
     res.json({ note });
   } catch (error) {
-    console.error(error);
+    logger.error(error);
     res.status(500).json({ error: "Internal Server Error" });
   }
 }
@@ -45,7 +44,7 @@ export async function createNote(req, res) {
       .status(201)
       .json({ message: "Note created successfully", note: newNote });
   } catch (error) {
-    console.error(error);
+    logger.error(error);
     res.status(500).json({ error: "Internal Server Error" });
   }
 }
@@ -66,7 +65,7 @@ export async function updateNoteById(req, res) {
 
     res.json({ message: "Note updated successfully", note: updatedNote });
   } catch (error) {
-    console.error(error);
+    logger.error(error);
     res.status(500).json({ error: "Internal Server Error" });
   }
 }
@@ -83,7 +82,7 @@ export async function deleteNoteById(req, res) {
 
     res.json({ message: "Note deleted successfully" });
   } catch (error) {
-    console.error(error);
+    logger.error(error);
     res.status(500).json({ error: "Internal Server Error" });
   }
 }
@@ -111,7 +110,7 @@ export async function shareNoteById(req, res) {
 
     res.json({ message: "Note shared successfully" });
   } catch (error) {
-    console.error(error);
+    logger.error(error);
     res.status(500).json({ error: "Internal Server Error" });
   }
 }
