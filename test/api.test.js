@@ -183,3 +183,14 @@ describe("API Endpoints for notes", () => {
     expect(response.body).toHaveProperty("message", "Note shared successfully");
   });
 });
+
+describe("API Endpoints for search notes", () => {
+  test("GET /api/search should search notes based on query", async () => {
+    const response = await supertest(app)
+      .get("/api/search?q=test")
+      .set("Authorization", `Bearer ${accessToken}`);
+
+    expect(response.statusCode).toBe(200);
+    expect(response.body).toHaveProperty("notes");
+  });
+});
