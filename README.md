@@ -24,7 +24,7 @@ The Project Name is a secure and scalable RESTful API designed to manage notes f
 
 1. Create a `.env` file in the project root with the following variables:
 
-   ### App_env The environment in which the application is running
+### App_env The environment in which the application is running
 
 ```
  NODE_ENV=development
@@ -38,23 +38,19 @@ The Project Name is a secure and scalable RESTful API designed to manage notes f
 
 ### Database connection details
 
-    ```
-
+```
 DB_DIALECT= # The dialect of the database server
 DB_HOST= # The hostname of the database server
 DB_PORT= # The port number on which the database server is listening
 DB_USERNAME= # The username of the database user
 DB_PASSWORD= # The password of the database user
 DB_NAME= # The name of the database
-
 ```
 
 ### JSON Web Token secret for authentication
 
 ```
-
 JWT_SECRET= # jwt secret key
-
 ```
 
 ## Running the Server
@@ -64,4 +60,3 @@ Execute the `npm run start:dev` command to run the server. The application will 
 ## Testing
 
 Execute the `npm run test` command to run the test suite.
-```
