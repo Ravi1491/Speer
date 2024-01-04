@@ -9,7 +9,7 @@ export async function searchNotes(req, res) {
       return res.status(400).json({ error: "Invalid search query" });
     }
 
-    const matchingNotes = await searchService.searchNotes(req.user.id, query);
+    const matchingNotes = await searchService.searchNotes(query);
 
     res.json({ notes: matchingNotes });
   } catch (error) {
