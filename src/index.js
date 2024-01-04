@@ -22,3 +22,5 @@ app.use("/", require("./routes/index"));
 app.listen(PORT, () => {
   logger.info(`Server is running on port ${PORT}`);
 });
+
+module.exports = app;

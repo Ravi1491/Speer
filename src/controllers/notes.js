@@ -7,7 +7,7 @@ export async function getAllNotes(req, res) {
 
     const notes = await noteService.findAllNotes({ userId });
 
-    res.json({ notes });
+    res.status(200).json({ notes });
   } catch (error) {
     logger.error(error);
     res.status(500).json({ error: "Internal Server Error" });

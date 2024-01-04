@@ -1,6 +1,6 @@
-const jwt = require("jsonwebtoken");
-const { jwt_secret } = require("../../config/default");
-const { findOneUser } = require("../services/user");
+import jwt from "jsonwebtoken";
+import { jwt_secret } from "../../config/default";
+import { findOneUser } from "../services/user";
 
 const authenticateUser = async (req, res, next) => {
   const token = req.header("Authorization");
